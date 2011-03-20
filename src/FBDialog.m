@@ -586,11 +586,13 @@ BOOL FBIsDeviceIPad() {
   [_spinner startAnimating];
   _spinner.center = _webView.center;
 
-  UIWindow* window = [UIApplication sharedApplication].keyWindow;
-  if (!window) {
-    window = [[UIApplication sharedApplication].windows objectAtIndex:0];
-  }
-
+//  UIWindow* window = [UIApplication sharedApplication].keyWindow;
+//  if (!window) {
+//    window = [[UIApplication sharedApplication].windows objectAtIndex:0];
+//  }
+   // fix the selection of windows to which to attach - breaks when you have UIAlertViews
+   UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:0];
+	
   _modalBackgroundView.frame = window.frame;
   [_modalBackgroundView addSubview:self];
   [window addSubview:_modalBackgroundView];
